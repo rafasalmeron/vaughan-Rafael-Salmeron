@@ -24,7 +24,7 @@ function retornaArrayInvertido(array) {
         let temporary = arr[first];
         arr[first] = arr[last];
         arr[last] = temporary;
-    }
+    };
     return arr;
 };
 
@@ -52,25 +52,36 @@ function retornaArrayOrdenado(array) {
 				let temporary = arr[j];
 				arr[j] = arr[j + 1];
 				arr[j + 1] = temporary;
-			}
-		}
-	}
+			};
+		};
+	};
     return arr;
 };
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-  
+  const arrPar = array.filter((arr2)=>{
+      return arr2 %2 == 0
+  })
+  return arrPar
+
+    //Desafio
+    
 }
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
- 
+    const arrPar = array.filter((arr2)=>{
+        return arr2 %2 == 0
+    }).map((arr2)=>{
+        return arr2**2
+    })
+    return arrPar
 }
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
-  
+    
 }
 
 // EXERCÍCIO 07
