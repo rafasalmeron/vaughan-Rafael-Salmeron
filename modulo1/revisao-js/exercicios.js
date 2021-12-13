@@ -26,12 +26,37 @@ function retornaArrayInvertido(array) {
         arr[last] = temporary;
     }
     return arr;
-}
+};
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
-    
-}
+    //Primeiro modo
+     const arr = array;
+    // arr.sort(function(aa,bb){
+    //     if(aa > bb){ 
+    //         return 1;
+    //     }
+    //     if(aa < bb) {
+    //         return -1;
+    //     }
+    // });
+    // return arr
+
+    //Desafio
+    for (let i = 0; i < arr.length; i++) {
+
+		for (j = 0; j < arr.length - 1; j++) {
+
+			if (arr[j] > arr[j + 1]) {
+
+				let temporary = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temporary;
+			}
+		}
+	}
+    return arr;
+};
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
