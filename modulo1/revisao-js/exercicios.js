@@ -81,12 +81,13 @@ function retornaNumerosParesElevadosADois(array) {
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
-    
+    const maioresDoQue10 = array
+    return Math.max(...maioresDoQue10)
 }
 
 // EXERCÍCIO 07
 function retornaObjetoEntreDoisNumeros(num1, num2) {
-
+    
 }
 
 // EXERCÍCIO 08
