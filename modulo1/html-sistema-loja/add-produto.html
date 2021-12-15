@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="global.css">
     <title>Adicionar Produto</title>
 </head>
-<body style="text-align:center">
-    <div>
-        <h4>Salmeron Store</h4>
-    </div>
-    
-    <div>
-        <a href="index.html">-Página Inicial-</a>
-        <a href="ctrl-estoque.html">-Controle de Estoque-</a>
-        <a href="add-produto.html">-Adicionar Produto-</a>
-        <a href="funcionarios.html">-Funcionários-</a>
+<body class="formulario">
+    <header>
+        <div class="detail">
+            <img class="logo" src="img/pngwing.com.png">
+            <h2>Salmeron Store</h2>
+        </div>
+    </header>    
+    <div class="menu">
+        <a href="index.html">Página Inicial</a>
+        <a href="ctrl-estoque.html">Controle de Estoque</a>
+        <a href="add-produto.html">Adicionar Produto</a>
+        <a href="funcionarios.html">Funcionários</a>
     </div>
 
     
     <h2>Adicionar Produto</h2>
-    <form  action="ctrl-estoque.html">
+    <form   action="ctrl-estoque.html">
         <div >
             <label for="link-foto">Link para foto: </label>
             <input  type="text" id="link-foto" name="link-foto">
@@ -50,6 +54,22 @@
         </div>
 
     </form>
-
+    <footer class="detail">
+        <div>
+            <!-- ADICIONAR INFORMAÇOES SOBRE SUA LOJINHA -->
+            <br>
+           
+        </div>
+        <div>
+            <p> Desde 2021 trazendo produtos com ótimos preços para você economizar. </p>
+            <p>Siga-nos nas redes sociais!</p>
+    
+            <div>
+                <a href="https://www.facebook.com/elrafa.salmeron" target="_blank"><img class="social" src="https://image.flaticon.com/icons/png/512/25/25305.png"/></a>
+                <a href="https://www.instagram.com/sr.salmeron/" target="_blank"><img class="social" src="https://image.flaticon.com/icons/png/512/25/25425.png"/></a>
+                <a href="https://twitter.com/Sr_Salmeron" target="_blank"><img class="social" src="https://image.flaticon.com/icons/png/512/8/8800.png"/></a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
