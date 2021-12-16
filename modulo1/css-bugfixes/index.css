@@ -141,10 +141,13 @@ input {
 }
 
 .container-do-search {
-    margin-top: 20px;
-    height: 100px;
 }
-
+.container-do-search:hover{
+    width: auto;
+}
+.container-do-search:active{
+    width: auto;
+}
 
 #back-button {
     background-color: white;
@@ -154,6 +157,8 @@ input {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    margin: 100vh;
+    margin-top: 50px;
 }
 
 #back-button:hover {
