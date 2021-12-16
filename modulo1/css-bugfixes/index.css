@@ -130,6 +130,11 @@ td button {
     color: black;
 }
 
+input {
+    border-width: 0 0 3px 0;
+    border-color: black;
+}
+
 .container-do-search {
     margin-top: 20px;
     height: 100px;
