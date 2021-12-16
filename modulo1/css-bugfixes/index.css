@@ -110,6 +110,14 @@ table {
     margin-left: 450px;
 }
 
+table tr td button:hover{
+    background-color: #eec40a;
+}
+
+table tr td button:active {
+    color: white;
+}
+
 img {
     width: 50px;
 }
