@@ -108,6 +108,7 @@ table {
     width: 60%;
     text-align: center;
     margin-left: 450px;
+    font-family: 'Roboto', sans-serif;
 }
 
 table tr td button:hover{
