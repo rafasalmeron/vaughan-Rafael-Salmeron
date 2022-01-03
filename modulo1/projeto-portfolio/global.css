@@ -1,0 +1,38 @@
+* {
+ margin: 0;
+ padding: 0;
+}
+.exp {
+    
+    text-align: center;
+}
+li{
+    margin: 0 auto;
+    width: 250px;  
+}
+.foto img{
+    width: 100px;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+}
+footer div{
+    display: inline-block;
+}
+.about p{
+    padding-bottom: 80px;
+}
+.about a{
+    position: relative;
+    left: 1000px;
+}
+header h1{
+    display: inline-block;
+    padding: 20px;
+}
+header a{
+    padding: 20px;
+    text-align: left;
+}
