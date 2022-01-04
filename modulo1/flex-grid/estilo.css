@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#container{
+    height: 100vh;
+}
+
+img {
+    height: 15px;
+}
+header {
+    height: 40px;
+    background-color: mediumvioletred;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+    align-items: center;
+}
+
+main {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 70px 1fr 70px;
+    grid-template-columns: 200px 1fr 150px;
+}
+
+.menu{
+    background-color: #f2d0e0;
+    grid-row: 1 / 4;
+}
+
+.bolo {
+    grid-template-areas: 1fr;
+}
+
+/* div section {
+    display: grid;
+
+} */
+
+.bolos {
+    width: 200px;
+    height: 200px;
+}
+
+footer {
+    height: 40px;
+    background-color: mediumvioletred;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
