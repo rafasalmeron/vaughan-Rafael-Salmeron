@@ -1,0 +1,30 @@
+body{
+    display: flex;
+    
+    flex-wrap: wrap;
+}
+
+
+
+
+#first_list{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+li{
+    display: flex;
+    border: solid 1px black;
+    padding: 100px;
+    margin: 20px;
+}
+
+#second_list{
+    display: flex;
+    flex-wrap: wrap; 
+
+}
+.diferentoes{
+    display: flex;
+    padding: 200px;
+}
