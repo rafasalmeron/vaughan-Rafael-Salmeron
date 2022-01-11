@@ -68,12 +68,14 @@ function App() {
           imagem="https://d2v9ipibika81v.cloudfront.net/uploads/sites/261/2017/01/facebook-logo-3.png" 
           texto="Facebook"
           link="https://www.facebook.com/elrafa.salmeron" 
+          target="_blank"
         />        
 
         <ImagemButton 
           imagem="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-1-1.png" 
           texto="Twitter"
-          link="https://twitter.com/home?lang=en" 
+          link="https://twitter.com/home?lang=en"
+          target="_blank" 
         />        
       </div>
     </div>

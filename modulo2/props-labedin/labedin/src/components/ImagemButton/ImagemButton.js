@@ -26,10 +26,10 @@ const ImgButton3 = styled.a`
 function ImagemButton(props) {
     return (
         <ImgButton>
-            <ImgButton3 href={props.link}><ImgButton2 src={ props.imagem } alt={"logo"}/>{ props.texto }</ImgButton3>
+            <ImgButton3 target={props.target} href={props.link} ><ImgButton2 src={ props.imagem } alt={"logo"}/>{ props.texto }</ImgButton3>
         </ImgButton>
 
-    )
+    )   
 }
 
 export default ImagemButton;
