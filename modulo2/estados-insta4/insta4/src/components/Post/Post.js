@@ -3,6 +3,9 @@ import styled from 'styled-components'
 
 import {IconeComContador} from '../IconeComContador/IconeComContador'
 
+import iconeBookMarkOn from '../../img/BookMarkOn.svg'
+import iconeBookMarkOff from '../../img/BookMarkOff.svg'
+
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
@@ -45,7 +48,24 @@ class Post extends React.Component {
     curtido: false,
     numeroCurtidas: 0,
     comentando: false,
-    numeroComentarios: 0
+    numeroComentarios: 0,
+    salvar: false,
+    numeroSalvamento: 0
+  }
+
+  onClickSalvar = () => {
+    let novoNumeroSalvamento
+
+    if(this.state.salvar) {
+      novoNumeroSalvamento = this.state.numeroSalvamento - 1
+    } else {
+      novoNumeroSalvamento = this.state.numeroSalvamento + 1
+    }
+
+    this.setState({
+      salvar: !this.state.salvar,
+      numeroSalvamento: novoNumeroSalvamento
+    })
   }
 
   onClickCurtida = () => {
@@ -62,7 +82,6 @@ class Post extends React.Component {
       numeroCurtidas: novoNumeroCurtidas
     })
   }
-
 
   onClickComentario = () => {
     this.setState({
@@ -84,6 +103,14 @@ class Post extends React.Component {
       iconeCurtida = iconeCoracaoPreto
     } else {
       iconeCurtida = iconeCoracaoBranco
+    }
+
+    let iconeSalvar
+
+    if(this.state.salvar) {
+      iconeSalvar = iconeBookMarkOn
+    } else {
+      iconeSalvar = iconeBookMarkOff
     }
 
     let componenteComentario
@@ -112,6 +139,12 @@ class Post extends React.Component {
           onClickIcone={this.onClickComentario}
           valorContador={this.state.numeroComentarios}
         />
+        <IconeComContador
+          icone={iconeSalvar}
+          onClickIcone={this.onClickSalvar}
+          valorContador={this.state.numeroSalvamento}
+        />
+        
       </PostFooter>
       {componenteComentario}
     </PostContainer>
