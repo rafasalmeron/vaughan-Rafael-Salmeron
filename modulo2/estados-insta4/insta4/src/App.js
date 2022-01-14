@@ -37,30 +37,30 @@ class App extends React.Component {
     valorInputFotoPost: "",
   };
 
+  // adicionaUsuario = () => {
+  //   const novaPessoa = this.state.valorInputUsuario;
+  //   const novoPessoas = [novaPessoa, ...this.state.pessoas];
+  //   this.setState({ pessoas: novoPessoas });
+  // };
+  // adicionaFotoUsuario = () => {
+  //   const novaPessoa = this.state.valorInputUsuario;
+  //   const novoPessoas = [novaPessoa, ...this.state.pessoas];
+  //   this.setState({ pessoas: novoPessoas });
+  // };
+  // adicionaFotoPost = () => {
+  //   const novaPessoa = this.state.valorInputUsuario;
+  //   const novoPessoas = [novaPessoa, ...this.state.pessoas];
+  //   this.setState({ pessoas: novoPessoas });
+  // };
+ 
   adicionaUsuario = () => {
-    const novaPessoa = this.state.valorInputUsuario;
-    const novoPessoas = [novaPessoa, ...this.state.pessoas];
-    this.setState({ pessoas: novoPessoas });
-  };
-  adicionaFotoUsuario = () => {
-    const novaPessoa = this.state.valorInputUsuario;
-    const novoPessoas = [novaPessoa, ...this.state.pessoas];
-    this.setState({ pessoas: novoPessoas });
-  };
-  adicionaFotoPost = () => {
-    const novaPessoa = this.state.valorInputUsuario;
-    const novoPessoas = [novaPessoa, ...this.state.pessoas];
-    this.setState({ pessoas: novoPessoas });
-  };
-
-  adicionaUsuario = () => {
-    const novaPessoa = {
+    const novoUsuario = {
       nomeUsuario: this.state.valorInputUsuario,
       fotoUsuario: this.state.valorInputFotoUsuario,
       fotoPost: this.state.valorInputFotoPost,
     };
-    const novoPessoas = [...this.state.pessoas, novaPessoa];
-    this.setState({ pessoas: novoPessoas });
+    const novoUsuarioAdicionado = [...this.state.pessoas, novoUsuario];
+    this.setState({ pessoas: novoUsuarioAdicionado });
     this.setState({ valorInputUsuario: "", valorInputFotoUsuario: "", valorInputFotoPost: ""});
   };
 

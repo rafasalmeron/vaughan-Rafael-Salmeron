@@ -6,10 +6,13 @@ import {IconeComContador} from '../IconeComContador/IconeComContador'
 import iconeBookMarkOn from '../../img/BookMarkOn.svg'
 import iconeBookMarkOff from '../../img/BookMarkOff.svg'
 
+import iconeShare from '../../img/share.svg'
+
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
+import { SecaoCompartilhar } from '../SecaoCompartilhar/SecaoCompartilhar'
 
 const PostContainer = styled.div`
   border: 1px solid gray;
@@ -50,7 +53,22 @@ class Post extends React.Component {
     comentando: false,
     numeroComentarios: 0,
     salvar: false,
-    numeroSalvamento: 0
+    numeroSalvamento: 0,
+    compartilhando: false,
+    numeroShare: 0
+  }
+
+  onClickShare = () => {
+    this.setState({
+      compartilhando: !this.state.compartilhando
+    })
+  }
+
+  aoCompartilhar = () => {
+    this.setState({
+      compartilhando: false,
+      numeroShare: this.state.numeroShare + 1
+    })
   }
 
   onClickSalvar = () => {
@@ -104,6 +122,7 @@ class Post extends React.Component {
     } else {
       iconeCurtida = iconeCoracaoBranco
     }
+    
 
     let iconeSalvar
 
@@ -118,6 +137,12 @@ class Post extends React.Component {
     if(this.state.comentando) {
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
     } 
+
+    let componenteCompartilhar
+
+    if(this.state.compartilhando) {
+      componenteCompartilhar = <SecaoCompartilhar aoCompartilharSocial={this.aoCompartilhar}/>
+    }
 
     return <PostContainer>
       <PostHeader>
@@ -144,9 +169,14 @@ class Post extends React.Component {
           onClickIcone={this.onClickSalvar}
           valorContador={this.state.numeroSalvamento}
         />
-        
+        <IconeComContador
+          icone={iconeShare}
+          onClickIcone={this.onClickShare}
+          valorContador={this.state.numeroShare}
+        />
       </PostFooter>
       {componenteComentario}
+      {componenteCompartilhar}
     </PostContainer>
   }
 }
