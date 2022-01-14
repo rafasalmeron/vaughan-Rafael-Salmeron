@@ -3,9 +3,15 @@ import React from "react";
 import styled from "styled-components";
 import App from "../App";
 
-
-
-
+const Conteiner_Mensagem = styled.form`
+    display: flex;
+`
+const Input_Usuario = styled.input`
+    width: 80px;
+`
+const Input_Texto = styled.input`
+    flex: 1
+`
 
 
 
@@ -24,8 +30,9 @@ class Comp_Mensagem extends React.Component{
     this.setState({mensagem_texto: event.target.value})
 }
 
-    ao_enviar_mensagem = () => {
-    const mensagem = {
+    ao_enviar_mensagem = (event) => {
+        event.preventDefault()
+        const mensagem = {
         usuario: this.state.mensagem_usuario,
         texto: this.state.mensagem_texto
     }
@@ -36,19 +43,19 @@ class Comp_Mensagem extends React.Component{
 
     render(){
         return (
-            <div>
-                <input
+            <Conteiner_Mensagem onSubmit={this.ao_enviar_mensagem}>
+                <Input_Usuario
                     placeholder="Usuario"
                     onChange={this.on_change_usuario}
                     value={this.state.mensagem_usuario}
                 />
-                <input
+                <Input_Texto
                     placeholder="Mensagem"
                     onChange={this.on_change_texto}
                     value={this.state.mensagem_texto}
                 />
-                <button onClick={this.ao_enviar_mensagem}>Enviar</button>
-            </div>
+                <button>Enviar</button>
+            </Conteiner_Mensagem>
         )
     }
 }
