@@ -1,7 +1,7 @@
 import React from "react";
-import styledComponents from "styled-components";
 import styled from "styled-components";
 import Comp_Mensagem from "./componetes/Comp_Mensagem";
+import Fundo_Whatapp from "./img/whatappFundo.jpg"
 
 const Container_Principal = styled.div `
   height: 100vh;
@@ -10,6 +10,7 @@ const Container_Principal = styled.div `
   display: flex;
   flex-direction: column;
   flex: 1;
+  background: url(${Fundo_Whatapp}); 
 `
 const Conteiner_Mensagem_Principal = styled.div`
   display: flex;
@@ -17,12 +18,6 @@ const Conteiner_Mensagem_Principal = styled.div`
   justify-content: end;
   flex: 1;
 `
-
-
-
-
-
-
 
 class App extends React.Component {
   state = {
@@ -39,7 +34,6 @@ class App extends React.Component {
     return (
       
       <Container_Principal>
-        
         <Conteiner_Mensagem_Principal>
         {this.state.mensagens.map((mensagem, key) => {
             return (
