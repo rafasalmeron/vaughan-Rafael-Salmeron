@@ -26,9 +26,9 @@ class App extends React.Component {
     }
 
   componentDidUpdate(prevProps, prevState) {
-      if (prevState.taregas !== this.state.tarefas) {
-        localStorage.setItem("tarefas", this.state.tarefas);
-        console.log("Salvei tarefa");
+      if (prevState.inputValue !== this.state.inputValue) {
+        localStorage.setItem("tarefa", this.state.inputValue);
+        console.log("Salvando tarefa");
       }
     }
       
