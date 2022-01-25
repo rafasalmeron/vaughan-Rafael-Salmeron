@@ -1,58 +1,29 @@
-import react from "react";
-import axios from "axios";
+import React from "react";
+import InitialPage from "./Components/InitialPage";
+import UsersList from "./Components/UserList";
+import seta from "./img/arrow_right_alt_black_24dp.svg"
 
-class initialPage extends react.Component {
+class App extends React.Component {
   state = {
-    name: "",
-    email: "",
-  };
+    pagina: "initialPage"
+  }
 
-  handleName = (event) => {
-    this.setState({ name: event.target.value });
-  };
-  handleEmail = (e) => {
-    this.setState({ email: e.target.value });
-  };
-  handleCreateUser = () => {
-    const axiosConfig = {
-      headers: { Authorization: "rafael-salmeron-vaughan" },
-    };
-    const body = {
-      name: this.state.name,
-      email: this.state.email,
-    };
-    axios.post(
-      "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
-      body,
-      axiosConfig
-    )
-    .then(() => {
-      alert(`Usuário ${this.getSnapshotBeforeUpdate.name} Criado com Sucesso!`);
-      this.setState({name:"", email: ""});
-    })
-    .catch(error => {
-      alert("Falha ao criar usuário.")
-      console.log(error)
-    })
-  };
+  mudarPagina = () => {
+    if(this.state.pagina === "initialPage"){
+      this.setState({pagina: "usersList"})
+    }else{
+      this.setState({pagina: "initialPage"})
+    }
+  }
 
   render() {
     return (
       <div>
-        <input
-          placeholder="Nome"
-          value={this.state.name}
-          onChange={this.handleName}
-        />
-        <input
-          placeholder="e-mail"
-          value={this.state.email}
-          onChange={this.handleEmail}
-        />
-        <button onClick={this.handleCreateUser} >Criar Usuário</button>
+        {this.state.pagina === "initialPage" ? <InitialPage/> : <UsersList/>}
+        <button onClick={this.mudarPagina}>Trocar Página</button>
       </div>
-    );
-  }d
+    )
+  }
 }
 
-export default initialPage;
+export default App
