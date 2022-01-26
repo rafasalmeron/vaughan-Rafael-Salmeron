@@ -1,5 +1,13 @@
 import react from "react";
 import axios from "axios";
+import styled from "styled-components";
+
+const ConteinerSigin = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+`;
+
 
 class initialPage extends react.Component {
   state = {
@@ -41,8 +49,7 @@ class initialPage extends react.Component {
   render() {
     
     return (
-      <div>
-        
+      <ConteinerSigin>
         <input
           placeholder="Nome"
           value={this.state.name}
@@ -54,7 +61,7 @@ class initialPage extends react.Component {
           onChange={this.handleEmail}
         />
         <button onClick={this.handleCreateUser} >Criar Usuário</button>
-      </div>
+      </ConteinerSigin>
     );
   }
 }
