@@ -1,7 +1,16 @@
 import React from "react";
 import InitialPage from "./Components/InitialPage";
 import UsersList from "./Components/UserList";
-import seta from "./img/arrow_right_alt_black_24dp.svg"
+import styled from "styled-components";
+
+const Conteiner = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    
+`
 
 class App extends React.Component {
   state = {
@@ -18,10 +27,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <Conteiner>
         {this.state.pagina === "initialPage" ? <InitialPage/> : <UsersList/>}
         <button onClick={this.mudarPagina}>Trocar Página</button>
-      </div>
+      </Conteiner>
     )
   }
 }

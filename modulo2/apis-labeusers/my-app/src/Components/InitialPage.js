@@ -15,6 +15,7 @@ class initialPage extends react.Component {
   handleEmail = (e) => {
     this.setState({ email: e.target.value });
   };
+
   handleCreateUser = () => {
     const axiosConfig = {
       headers: { Authorization: "rafael-salmeron-vaughan" },
@@ -33,8 +34,7 @@ class initialPage extends react.Component {
       this.setState({name: "", email: ""});
     })
     .catch(error => {
-      alert("Falha ao criar usuário.")
-      console.log(error)
+      alert(error.response.data.message)
     })
   };
 
