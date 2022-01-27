@@ -13,12 +13,12 @@ export default class PlaylistDetailPage extends React.Component {
   getPlaylistTracks = () => {
     const axiosConfig = {headers: 
       { Authorization: "rafael-salmeron-vaughan"}}
-    axios.get(`${getPlaylistTracks}`,
-    this.props.id,
+    axios.get(`${getPlaylistTracks}/${this.props.id}/tracks`,
     axiosConfig)
     .then((res) => this.setState({tracks: res.data}))
     .catch((err) => console.log(err.response))
   }
+  
   render () {
   return (
     <div>
