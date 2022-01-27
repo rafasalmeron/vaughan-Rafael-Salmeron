@@ -22,7 +22,6 @@ export default class PlaylistsPage extends React.Component {
   }
 
   render () { 
-    console.log(this.state.playlists)
     const playlist2 = this.state.playlists.map((lista) =>
       lista.list.map(listei =>
         <ListaCard 

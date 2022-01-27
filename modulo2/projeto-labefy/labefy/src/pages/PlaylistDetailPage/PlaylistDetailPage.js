@@ -15,18 +15,24 @@ export default class PlaylistDetailPage extends React.Component {
       { Authorization: "rafael-salmeron-vaughan"}}
     axios.get(`${getPlaylistTracks}/${this.props.id}/tracks`,
     axiosConfig)
-    .then((res) => this.setState({tracks: res.data}))
+    .then((res) => this.setState({tracks: res.data.result.tracks}))
     .catch((err) => console.log(err.response))
+    
   }
   
   render () {
+    const tracks2 = this.state.tracks.map((musicas, id) =>
+    <div key={id}>
+    <p>Nome: {musicas.name}</p>
+    <p>Artista: {musicas.artist}</p>
+    <audio controls="controls"><source src={musicas.url}/></audio>
+    </div>
+    )
+    console.log(tracks2)
   return (
     <div>
-      <p>Nome: {this.state.tracks.name}</p>
-      <p>Artista: {this.state.tracks.artist}</p>
-      <p>Música: {this.state.tracks.url}</p>
+      {tracks2}
       <button onClick={this.props.backPlaylists}>Voltar</button>
-      {this.props.id}
     </div>
   )
   }
