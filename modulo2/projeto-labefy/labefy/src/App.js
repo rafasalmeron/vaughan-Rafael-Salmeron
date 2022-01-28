@@ -6,25 +6,25 @@ import WelcomePage from './pages/WelcomePage/WelcomePage';
 
 class App extends React.Component {
   state = {
-    currentScreen: "playlists",
+    currentScreen: "welcome",
     selectedPlaylist: ""
   }
 
+  handlePlaylistsPage = () => {
+    this.setState({currentScreen: "playlists"})
+  }
   handleDetailsPage = (id) => {
      this.setState({currentScreen: "playlistDetail", selectedPlaylist: id})
-  }
-  backPlaylists = () => {
-    this.setState({currentScreen: "playlists", selectedPlaylist: ""})
   }
 
   selectPage = () => {
     switch (this.state.currentScreen){
       case "welcome":
-        return <WelcomePage />
+        return <WelcomePage handlePlaylistsPage={this.handlePlaylistsPage}/>
       case "playlists":
         return  <PlaylistsPage handleDetailsPage={this.handleDetailsPage}/>
       case "playlistDetail":
-        return  <PlaylistDetailPage backPlaylists={this.backPlaylists} id={this.state.selectedPlaylist}/>
+        return  <PlaylistDetailPage handlePlaylistsPage={this.handlePlaylistsPage} id={this.state.selectedPlaylist}/>
       default:
         return  <WelcomePage /> 
     }
