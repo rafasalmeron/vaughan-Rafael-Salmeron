@@ -10,6 +10,7 @@ export default class WelcomePage extends React.Component {
         <h2>Bem-Vindo ao Labefy</h2>
         <h3>Crie playlists, acesse suas playlists e ouça suas músicas favoritas!</h3>
         <Sigin onClick={this.props.handlePlaylistsPage}>ENTRAR</Sigin>
+        <button onClick={this.props.handleTutorialPage}>Tutorial</button>
       </Pages>
     )
   }

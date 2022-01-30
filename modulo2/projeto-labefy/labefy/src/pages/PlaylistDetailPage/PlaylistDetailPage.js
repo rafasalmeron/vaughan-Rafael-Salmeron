@@ -88,7 +88,7 @@ export default class PlaylistDetailPage extends React.Component {
           <Back onClick={this.props.handlePlaylistsPage}>Voltar</Back>
           <div>
             <p>Tutorial de como adicionar a url corretamente:</p>
-            <button>Tutorial</button>
+            <button onClick={this.props.handleTutorialPage}>Tutorial</button>
           </div>
       </Add>
     </Pages>

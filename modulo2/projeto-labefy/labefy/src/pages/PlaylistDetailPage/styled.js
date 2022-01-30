@@ -12,11 +12,11 @@ width: 100vw;
 height: 100vh;
 background-color: #1c1c1c;
 display: flex;
+flex-direction: column;
 align-items: center;
 text-align: center;
-/* justify-content: flex-start; */
 justify-content: space-evenly;
-align-items: flex-start;
+align-items: center;
 
 h3, h4 {
   color: #9c1a1a;
@@ -53,7 +53,7 @@ export const Back = styled.button`
     background-color: #1aa34a;
   }
 `
-export const Add = styled.div`
+export const Add = styled.span`
     border: 1px solid #850000;
     padding: 0px;
     div > p{
