@@ -1,8 +1,9 @@
 import axios from 'axios'
 import React from 'react'
 import { URL_BASE } from '../../constants/urls'
-import { ConteinerIndividual, ConteinerPlaylist, Delete, ListaCard } from './styled'
+import { AddPlaylist, ConteinerIndividual, ConteinerPlaylist, Delete, ListaCard, Pages } from './styled'
 import iconeDelete from '../../assets/img/delete.png'
+
 
 export default class PlaylistsPage extends React.Component {
   state = {
@@ -28,9 +29,10 @@ export default class PlaylistsPage extends React.Component {
       { Authorization: "rafael-salmeron-vaughan"}}
     const body = { name: this.state.name}
     axios.post(URL_BASE,body,axiosConfig)
-    .then((res) => {
+    .then(( e) => {
       this.getPlaylist()
-      this.setState({inputCreatePlaylist: ""})
+      this.setState({name: ""})
+      e.preventDefault()
     })
     .catch((err) => {
       console.log(err.response)
@@ -55,20 +57,21 @@ export default class PlaylistsPage extends React.Component {
           key={listei.id}
           onClick={() => this.props.handleDetailsPage(listei.id)}
         >
-          {listei.name}
+          <strong>{listei.name}</strong>
         </ListaCard>
         <Delete key={key}onClick={()=>this.deletePlaylist(listei.id)}>
-          <img src={iconeDelete}/>
+          <img src={iconeDelete} alt='deletar'/>
         </Delete>        
         </ConteinerIndividual>
         ))
-  return  <ConteinerPlaylist>
+  return  <Pages>
+          <ConteinerPlaylist>
             <div>
               <h2>Playlists</h2>
               {this.state.playlists.length>0? (playlist2): <p>Carregando ...</p>}
             </div>
-            <div>
-              <p>Adicione uma Playlist:</p>
+            <AddPlaylist>
+              <h3>Adicione uma Playlist:</h3>
               <input 
                 placeholder="Nome da Playlist"
                 value={this.state.name}
@@ -76,7 +79,8 @@ export default class PlaylistsPage extends React.Component {
               />
               <button onClick={this.createPlaylist}>Criar Playlist</button>
               <p></p>
-            </div>
+            </AddPlaylist>
           </ConteinerPlaylist>
+          </Pages>
   }
 }

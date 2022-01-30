@@ -1,14 +1,16 @@
 import React from 'react'
+import Spotify from '../../components/Spotify'
+import { Pages, Sigin } from './styled'
 
 
 export default class WelcomePage extends React.Component {
   render () {
-  return (
-    <div>
-      <h2>Bem-Vindo a Labefy</h2>
-      <p>Crie playlists, acesse suas playlists e ouça suas músicas favoritas!</p>
-      <button onClick={this.props.handlePlaylistsPage}>ENTRAR</button>
-    </div>
-  )
+    return (
+      <Pages>
+        <h2>Bem-Vindo ao Labefy</h2>
+        <h3>Crie playlists, acesse suas playlists e ouça suas músicas favoritas!</h3>
+        <Sigin onClick={this.props.handlePlaylistsPage}>ENTRAR</Sigin>
+      </Pages>
+    )
   }
 }

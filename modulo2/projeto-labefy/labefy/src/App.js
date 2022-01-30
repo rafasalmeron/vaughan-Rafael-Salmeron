@@ -2,7 +2,7 @@ import React from 'react'
 import PlaylistDetailPage from './pages/PlaylistDetailPage/PlaylistDetailPage';
 import PlaylistsPage from './pages/PlaylistsPage/PlaylistsPage';
 import WelcomePage from './pages/WelcomePage/WelcomePage';
-
+import './index.css'
 
 class App extends React.Component {
   state = {
@@ -25,7 +25,7 @@ class App extends React.Component {
         return  <PlaylistsPage handleDetailsPage={this.handleDetailsPage}/>
       case "playlistDetail":
         return  <PlaylistDetailPage handlePlaylistsPage={this.handlePlaylistsPage} id={this.state.selectedPlaylist}/>
-      default:
+        default:
         return  <WelcomePage /> 
     }
   }

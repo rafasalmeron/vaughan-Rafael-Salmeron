@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { URL_BASE } from '../../constants/urls'
-import { CardPlayer } from './styled'
+import { CardPlayer, Pages, Post, Back, Add } from './styled'
 
 export default class PlaylistDetailPage extends React.Component {
   state = {
@@ -48,8 +48,8 @@ export default class PlaylistDetailPage extends React.Component {
     axios.post(`${URL_BASE}/${this.props.id}/tracks`, body,
     axiosConfig)
     .then((res) => {
-      this.setState({tracks: res.data.result.tracks})
       this.getPlaylistTracks()
+      this.setState({name: "", artist: "", url: ""})
       console.log(res.data.result.tracks)
     })
     .catch((err) => console.log(err.response))
@@ -57,17 +57,21 @@ export default class PlaylistDetailPage extends React.Component {
   
   render () {
     const tracks2 = this.state.tracks.map((musicas, id) =>
-    <div key={id}>
-    <p>Nome: {musicas.name}</p>
-    <p>Artista: {musicas.artist}</p>
-    <CardPlayer src={musicas.url}></CardPlayer>
-    </div>
+    <Post key={id}>
+      {/* <p>Nome: {musicas.name}</p>
+      <p>Artista: {musicas.artist}</p> */}
+      <CardPlayer width="50" height="50" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write" 
+      src={musicas.url}></CardPlayer>
+    </Post>
     )
-    console.log()
   return (
-    <div>
-      {tracks2}
-      <div>
+    <Pages>
+        <div>
+         <h4>Tracks:</h4> 
+        {tracks2}
+        </div>
+      <Add>
+          <h3>Adicione uma música a sua playlist:</h3>
           <input 
           placeholder="Nome da Música"
           value={this.state.name}
@@ -79,11 +83,15 @@ export default class PlaylistDetailPage extends React.Component {
           <input 
           placeholder="Digite a url"
           value={this.state.url}
-          onChange={this.handleInputUrl}/>
-        <button onClick={this.addTrackToPlaylist}>Submit</button>
-      </div>
-      <button onClick={this.props.handlePlaylistsPage}>Voltar</button>
-    </div>
+          onChange={this.handleInputUrl}/><br />
+          <button onClick={this.addTrackToPlaylist}>Submit</button><br />
+          <Back onClick={this.props.handlePlaylistsPage}>Voltar</Back>
+          <div>
+            <p>Tutorial de como adicionar a url corretamente:</p>
+            <button>Tutorial</button>
+          </div>
+      </Add>
+    </Pages>
   )
   }
 }
