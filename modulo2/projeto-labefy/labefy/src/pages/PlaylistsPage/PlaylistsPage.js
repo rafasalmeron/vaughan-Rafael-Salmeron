@@ -78,7 +78,6 @@ export default class PlaylistsPage extends React.Component {
                 onChange={this.handleInput}
               />
               <button onClick={this.createPlaylist}>Criar Playlist</button>
-              <p></p>
             </AddPlaylist>
           </ConteinerPlaylist>
           </Pages>

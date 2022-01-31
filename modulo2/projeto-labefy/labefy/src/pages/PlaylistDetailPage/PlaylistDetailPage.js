@@ -1,7 +1,9 @@
 import axios from 'axios'
 import React from 'react'
 import { URL_BASE } from '../../constants/urls'
-import { CardPlayer, Pages, Post, Back, Add } from './styled'
+import { CardPlayer, Pages, Post, Back, Add, P } from './styled'
+import iconeDelete from '../../assets/img/delete.png'
+import { Delete } from '../PlaylistsPage/styled'
 
 export default class PlaylistDetailPage extends React.Component {
   state = {
@@ -55,6 +57,17 @@ export default class PlaylistDetailPage extends React.Component {
     .catch((err) => console.log(err.response))
   }
   
+  deletePlaylistTracks = (id, i) => {
+    const axiosConfig = {headers: 
+      { Authorization: "rafael-salmeron-vaughan"}}
+    axios.delete(`${URL_BASE}/${this.props.id}/tracks/${id}`,
+    axiosConfig)
+    .then((res) => {
+      this.getPlaylistTracks()
+    })
+    .catch((err) => console.log(err.response))
+  }
+
   render () {
     const tracks2 = this.state.tracks.map((musicas, id) =>
     <Post key={id}>
@@ -62,13 +75,16 @@ export default class PlaylistDetailPage extends React.Component {
       <p>Artista: {musicas.artist}</p> */}
       <CardPlayer width="50" height="50" frameborder="0" allowtransparency="true" allow="encrypted-media; clipboard-write" 
       src={musicas.url}></CardPlayer>
+      <Delete key={id}onClick={()=>this.deletePlaylistTracks(musicas.id)}>
+          <img src={iconeDelete} alt='deletar'/>
+        </Delete>    
     </Post>
     )
   return (
     <Pages>
         <div>
-         <h4>Tracks:</h4> 
-        {tracks2}
+          <h4>Tracks:</h4>
+          {this.state.tracks.length>0? (tracks2): <P>Carregando ... (Adicione suas tracks)</P>}
         </div>
       <Add>
           <h3>Adicione uma música a sua playlist:</h3>

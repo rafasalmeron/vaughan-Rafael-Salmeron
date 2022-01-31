@@ -53,6 +53,9 @@ export const Back = styled.button`
     background-color: #1aa34a;
   }
 `
+export const P = styled.p`
+  color: #850000
+`
 export const Add = styled.span`
     border: 1px solid #850000;
     padding: 0px;
