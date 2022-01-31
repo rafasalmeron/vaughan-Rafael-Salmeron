@@ -4,8 +4,9 @@ export const Pages = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: #1c1c1c;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
   align-items: center;
   text-align: center;
   justify-content: flex-start;
@@ -18,9 +19,15 @@ export const Pages = styled.div`
   }
   p {
       color: #9c1a1a;
-
   }
-`;
+  img {
+    width: 150px;
+    height: 100px;
+  }
+  div > p{
+    color: #9c1a1a;
+  }
+`
 
 export const Back = styled.button`
   background-color: #852222;
