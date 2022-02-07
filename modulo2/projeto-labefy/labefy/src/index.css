@@ -1,0 +1,8 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+* > div{
+    background: url(/home/elrafa/Labenu/vaughan-Rafael-Salmeron/modulo2/projeto-labefy/labefy/src/assets/img/abstract.jpg);
+}
