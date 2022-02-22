@@ -1,10 +1,13 @@
-import './App.css';
+import React from 'react'
+import Router from './routes/Router'
+import { ThemeProvider } from '@material-ui/core';
+import theme from './constants/theme'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      LabEddit
-    </div>
+    <ThemeProvider theme={theme}>
+      <Router/>
+    </ThemeProvider>
   );
 }
 
