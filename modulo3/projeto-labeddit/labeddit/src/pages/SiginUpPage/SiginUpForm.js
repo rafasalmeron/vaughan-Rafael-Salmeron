@@ -2,21 +2,33 @@ import React from "react";
 import { InputConteiner } from "./styled";
 import { Button, TextField } from "@material-ui/core";
 import useForm from "../../hooks/UseForm";
-import {login} from '../../services/users'
+import { signUp } from "../../services/users";
 import { useNavigate } from "react-router-dom";
 
-const LoginForm = ({setLogin_logout}) => {
-  const [form, onChange, clear] = useForm({ email: "", password: "" });
+const SiginUpForm = ({setLogin_logout}) => {
   const navigate = useNavigate()
+  const [form, onChange, clear] = useForm({ email: "", password: "" });
 
   const onSubmitForm = (event) => {
     event.preventDefault();
-    login(form, clear, navigate, setLogin_logout)
+    signUp(form, clear, navigate, setLogin_logout)
   };
 
   return (
-    <InputConteiner>
-      <form onSubmit={onSubmitForm}>
+    <form onSubmit={onSubmitForm}>
+      <InputConteiner>
+        <TextField
+          type={"name"}
+          name={"username"}
+          value={form.name}
+          onChange={onChange}
+          label="Nome"
+          variant={"outlined"}
+          fullWidth
+          margin={"normal"}
+          required
+          autoFocus
+        />
         <TextField
           type={"email"}
           name={"email"}
@@ -46,11 +58,11 @@ const LoginForm = ({setLogin_logout}) => {
           color="primary"
           margin="normal"
         >
-          Login
+          Cria Conta
         </Button>
-      </form>
-    </InputConteiner>
+      </InputConteiner>
+    </form>
   );
 };
 
-export default LoginForm;
+export default SiginUpForm;

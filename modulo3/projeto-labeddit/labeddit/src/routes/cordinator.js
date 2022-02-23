@@ -1,12 +1,12 @@
 export const goToLogin = (navigate) => {
-    navigate("/login")
-}
+  navigate("/login");
+};
 export const goToSiginUp = (navigate) => {
-    navigate("/cadastro")
-}
+  navigate("/cadastro");
+};
 export const goToFeed = (navigate) => {
-    navigate("/")
-}
+  navigate("/");
+};
 export const goToPost = (navigate, id) => {
-    navigate(`/post/${id}`)
-}
+  navigate(`/post/${id}`);
+};
