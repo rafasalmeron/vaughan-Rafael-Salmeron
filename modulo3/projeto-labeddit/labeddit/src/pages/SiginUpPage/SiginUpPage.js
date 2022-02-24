@@ -1,6 +1,6 @@
 import React from "react";
 import { Logo, ScreenConteiner } from "./styled";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo_new2-0.png";
 import SiginUpForm from "./SiginUpForm";
 import useUnProtectedPage from "../../hooks/useunprotectedPage";
 

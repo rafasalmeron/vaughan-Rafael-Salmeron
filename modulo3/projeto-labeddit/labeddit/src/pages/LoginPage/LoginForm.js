@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const LoginForm = ({setLogin_logout}) => {
   const [form, onChange, clear] = useForm({ email: "", password: "" });
   const navigate = useNavigate()
-
+  console.log(form)
   const onSubmitForm = (event) => {
     event.preventDefault();
     login(form, clear, navigate, setLogin_logout)
