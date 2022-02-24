@@ -21,16 +21,18 @@ const FeedPage = () => {
     console.log(feed.username[0]);
 
     return (
-      <ConteinerCards>
+      <ConteinerCards key={feed.id}>
         <PostCard
-          key={feed.id}
+          id={feed.id}
           title={feed.title}
           name={feed.username}
           body={feed.body}
           subheader={feed.createdAt}
-          onClick={() => onClickCard(feed.id)}
+          // onClick={() => onClickCard(feed.id)}
         />
+
       </ConteinerCards>
+      
     );
   });
 

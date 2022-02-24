@@ -18,6 +18,9 @@ import { goToPost } from "../../routes/cordinator";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Collapse from "@material-ui/core/Collapse";
+import PostPage from "../PostComents/PostComents";
+import { BASE_URL } from "../../constants/urls";
+import useRequestData from "../../hooks/useRequestData";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -31,12 +34,13 @@ const ExpandMore = styled((props) => {
 }));
 
 const PostCard = (props) => {
+  const coments = useRequestData([], `${BASE_URL}/posts/${props.id}/comments`);
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
+  
   useProtectedPage();
   const navigate = useNavigate();
   console.log(props);
@@ -89,17 +93,11 @@ const PostCard = (props) => {
           </ExpandMore>
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>
-            <Typography paragraph>Method:</Typography>
-            <Typography paragraph>
-              Heat 1/2 cup of the broth in a pot until simmering, add saffron
-              and set aside for 10 minutes.
-            </Typography>
-            <Typography paragraph>
-              ing 4 1/2 cups chicken broth; bring to a boil.
-            </Typography>
-            <Typography paragraph>open.)</Typography>
-            <Typography>Set aside off of th</Typography>
+          <CardContent>aaaa
+            <PostPage
+              coments={coments}
+            />
+            
           </CardContent>
         </Collapse>
       </Card>
