@@ -3,7 +3,8 @@ import Typography from "@material-ui/core/Typography";
 import React from "react";
 import ComentsCard from "../ComentsCard/ComentsCard";
 import useProtectedPage from "../../hooks/useProtectedPage";
-import { ConteinerCards } from "../../pages/FeedPage/styled";
+import { ConteinerComent } from "./styled";
+
 
 const PostComents = ({coments}) => {
   useProtectedPage();
@@ -11,7 +12,7 @@ const PostComents = ({coments}) => {
   console.log('COMENTARIO:', coments);
   const allComents = coments.map((coment) => {
     return (
-      <ConteinerCards  key={coment.id}>
+      <ConteinerComent  key={coment.id}>
         <ComentsCard         
           name={coment.username}
           body={coment.body}
@@ -24,7 +25,7 @@ const PostComents = ({coments}) => {
             </Typography>
           </CardContent>
         </ComentsCard>
-      </ConteinerCards>
+      </ConteinerComent>
     );
   });
   return allComents;

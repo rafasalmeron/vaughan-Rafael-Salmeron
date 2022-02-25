@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Conteiner } from "./styled";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import {  Card,  CardHeader,  CardContent,  CardActions,
@@ -54,7 +53,10 @@ const PostCard = (props) => {
             aria-expanded={expanded}
             aria-label="show more"
           >
-            <ExpandMoreIcon />
+            <Typography body="body" variant="body2" color="primary">
+            Comentar
+            </Typography>
+            
           </PostExpandMore>
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>

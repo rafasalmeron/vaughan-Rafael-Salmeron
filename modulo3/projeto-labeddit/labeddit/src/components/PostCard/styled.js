@@ -1,14 +1,16 @@
 import styled from 'styled-components'
 
 export const Conteiner = styled.div`
-    max-width: 80vw;
+    min-width: 60vw;
+    max-width: 60vw;
 `
 
 export const InputConteiner = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80vw;
-  max-width: 450px;
+  justify-content: center;
+  align-content: center;
+  width: 100vw;
   align-items: center;
   margin-bottom: 20px;
 `;
