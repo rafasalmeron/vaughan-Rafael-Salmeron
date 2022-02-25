@@ -1,18 +1,12 @@
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
-import { useParams } from "react-router-dom";
 import ComentsCard from "../ComentsCard/ComentsCard";
-import PostCard from "../PostCard/PostCard";
-import { BASE_URL } from "../../constants/urls";
 import useProtectedPage from "../../hooks/useProtectedPage";
-import useRequestData from "../../hooks/useRequestData";
 import { ConteinerCards } from "../../pages/FeedPage/styled";
 
-const PostPage = ({coments}) => {
+const PostComents = ({coments}) => {
   useProtectedPage();
-//   const params = useParams();
-//   const post = useRequestData([], `${BASE_URL}/posts/${coments.id}/comments`);
 
   console.log('COMENTARIO:', coments);
   const allComents = coments.map((coment) => {
@@ -36,4 +30,4 @@ const PostPage = ({coments}) => {
   return allComents;
 };
 
-export default PostPage;
+export default PostComents;

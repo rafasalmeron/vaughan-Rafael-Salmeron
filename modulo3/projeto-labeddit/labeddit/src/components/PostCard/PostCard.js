@@ -1,49 +1,22 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { Conteiner } from "./styled";
-import styled from "@material-ui/styles/styled";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import { primarycolor } from "../../constants/colors";
-import { useNavigate } from "react-router-dom";
-import { goToPost } from "../../routes/cordinator";
-import useProtectedPage from "../../hooks/useProtectedPage";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import Collapse from "@material-ui/core/Collapse";
-import PostPage from "../PostComents/PostComents";
-import { BASE_URL } from "../../constants/urls";
-import useRequestData from "../../hooks/useRequestData";
-
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
+import MoreVertIcon from "@material-ui/icons/MoreVert";
+import useProtectedPage from "../../hooks/useProtectedPage";
+import {  Card,  CardHeader,  CardContent,  CardActions,
+Avatar,  IconButton, Typography,  Collapse} from "@material-ui/core";
+import ComentForm from "../PostComents/ComentsForm";
+import { PostExpandMore } from "./PostExpandeMore";
 
 const PostCard = (props) => {
-  const coments = useRequestData([], `${BASE_URL}/posts/${props.id}/comments`);
-  const [expanded, setExpanded] = React.useState(false);
-
+  useProtectedPage();
+  const [expanded, setExpanded] = useState(false);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  
-  useProtectedPage();
-  const navigate = useNavigate();
-  console.log(props);
+
   return (
     <Conteiner>
       <Card onClick={props.onClick} sx={{ maxWidth: 345 }}>
@@ -63,14 +36,6 @@ const PostCard = (props) => {
           title={props.title}
           subheader={props.subheader}
         />
-
-        {/* <CardMedia
-          component="img"
-          height="150"
-          width='100'
-          image={props.image}
-          alt={props.title}
-        /> */}
         <CardContent>
           <Typography body="body" variant="body2" color="secondary">
             {props.body}
@@ -83,22 +48,17 @@ const PostCard = (props) => {
           <IconButton color="primary" aria-label="share">
             <ShareIcon />
           </IconButton>
-          <ExpandMore
+          <PostExpandMore
             expand={expanded}
             onClick={handleExpandClick}
             aria-expanded={expanded}
             aria-label="show more"
           >
             <ExpandMoreIcon />
-          </ExpandMore>
+          </PostExpandMore>
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>aaaa
-            <PostPage
-              coments={coments}
-            />
-            
-          </CardContent>
+          <ComentForm id={props.id} />
         </Collapse>
       </Card>
     </Conteiner>

@@ -4,18 +4,14 @@ import PostCard from "../../components/PostCard/PostCard";
 import { ConteinerCards } from "./styled";
 import useRequestData from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/urls";
-import { useNavigate } from "react-router-dom";
-import { goToPost } from "../../routes/cordinator";
+import PostForm from "../../components/PostCard/PostForm";
+import Loading from "../../components/Loading/Loading";
 
 const FeedPage = () => {
   useProtectedPage();
-  const navigate = useNavigate();
   const feeds = useRequestData([], `${BASE_URL}/posts`);
   console.log(feeds);
 
-  const onClickCard = (id) => {
-    goToPost(navigate, id);
-  };
 
   const feedCards = feeds.map((feed) => {
     console.log(feed.username[0]);
@@ -28,15 +24,19 @@ const FeedPage = () => {
           name={feed.username}
           body={feed.body}
           subheader={feed.createdAt}
-          // onClick={() => onClickCard(feed.id)}
         />
-
       </ConteinerCards>
       
     );
   });
 
-  return feedCards;
+  return (
+  <div>
+    <PostForm />
+    {feedCards.length > 0 ? feedCards : <Loading /> }
+  </div>)
+  
+  
 };
 
 export default FeedPage;

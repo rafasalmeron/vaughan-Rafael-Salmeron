@@ -2,40 +2,37 @@ import React, { useState } from "react";
 import { InputConteiner } from "./styled";
 import { Button, TextField, CircularProgress } from "@material-ui/core";
 import useForm from "../../hooks/UseForm";
-import {login} from '../../services/users'
-import { useNavigate } from "react-router-dom";
+import { createPost } from "../../services/posts";
 
-const LoginForm = ({setLogin_logout}) => {
-  const navigate = useNavigate()
-  const [form, onChange, clear] = useForm({ email: "", password: "" });
-  const [isLoading, setIsLoading] = useState(false)
-
+const PostForm = () => {
+  const [form, onChange, clear] = useForm({ title: "", body: "" });
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmitForm = (event) => {
     event.preventDefault();
-    login(form, clear, navigate, setLogin_logout, setIsLoading)
+    createPost(form, clear, setIsLoading);
   };
 
   return (
     <InputConteiner>
       <form onSubmit={onSubmitForm}>
         <TextField
-          type={"email"}
-          name={"email"}
-          value={form.email}
+          type={"text"}
+          name={"title"}
+          value={form.title}
           onChange={onChange}
-          label="E-mail"
+          label="Title"
           variant={"outlined"}
           fullWidth
           margin={"normal"}
           required
         />
         <TextField
-          type={"password"}
-          name={"password"}
-          value={form.password}
+          type={"text"}
+          name={"body"}
+          value={form.body}
           onChange={onChange}
-          label="Senha"
+          label="Texto"
           variant="outlined"
           fullWidth
           margin="normal"
@@ -48,13 +45,15 @@ const LoginForm = ({setLogin_logout}) => {
           color="primary"
           margin="normal"
         >
-          {isLoading ? <CircularProgress
-            color="inherit" size={24}
-          /> : <>Login</>}
+          {isLoading ? (
+            <CircularProgress color="inherit" size={24} />
+          ) : (
+            <>Postar</>
+          )}
         </Button>
       </form>
     </InputConteiner>
   );
 };
 
-export default LoginForm;
+export default PostForm;

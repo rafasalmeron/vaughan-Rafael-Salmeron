@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { InputConteiner } from "./styled";
-import { Button, TextField } from "@material-ui/core";
+import { Button, TextField, CircularProgress } from "@material-ui/core";
 import useForm from "../../hooks/UseForm";
 import { signUp } from "../../services/users";
 import { useNavigate } from "react-router-dom";
@@ -8,10 +8,11 @@ import { useNavigate } from "react-router-dom";
 const SiginUpForm = ({setLogin_logout}) => {
   const navigate = useNavigate()
   const [form, onChange, clear] = useForm({ email: "", password: "" });
+  const [isLoading, setIsLoading] = useState(false)
 
   const onSubmitForm = (event) => {
     event.preventDefault();
-    signUp(form, clear, navigate, setLogin_logout)
+    signUp(form, clear, navigate, setLogin_logout, setIsLoading)
   };
 
   return (
@@ -58,7 +59,9 @@ const SiginUpForm = ({setLogin_logout}) => {
           color="primary"
           margin="normal"
         >
-          Cria Conta
+          {isLoading ? <CircularProgress
+            color="inherit" size={24}
+          /> : <>Cadastrar</>}
         </Button>
       </InputConteiner>
     </form>
