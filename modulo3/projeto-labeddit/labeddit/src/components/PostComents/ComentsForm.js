@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { InputConteiner } from "./styled";
+import { FormComent, InputConteiner } from "./styled";
 import { Button, TextField, CircularProgress } from "@material-ui/core";
 import useForm from "../../hooks/UseForm";
 import {createPost} from '../../services/posts'
@@ -34,6 +34,7 @@ const ComentForm = (props) => {
                 variant={"outlined"}
                 margin={"normal"}
                 required
+                fullWidth
               />
               <Button
                 type="submit"

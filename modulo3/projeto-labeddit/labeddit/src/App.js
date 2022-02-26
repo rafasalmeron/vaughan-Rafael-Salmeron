@@ -4,7 +4,7 @@ import { ThemeProvider } from "@material-ui/core";
 import theme from "./constants/theme";
 import { BrowserRouter } from "react-router-dom";
 import Header from "./components/Header/Header";
-import PostForm from "./components/PostCard/PostForm";
+
 
 const App = () => {
   const token = localStorage.getItem("tokenLabeddit");

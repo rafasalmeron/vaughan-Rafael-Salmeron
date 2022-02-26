@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import PostCard from "../../components/PostCard/PostCard";
 import { ConteinerCards } from "./styled";
@@ -11,7 +11,6 @@ const FeedPage = () => {
   useProtectedPage();
   const feeds = useRequestData([], `${BASE_URL}/posts`);
   console.log(feeds);
-
 
   const feedCards = feeds.map((feed) => {
     console.log(feed.username[0]);
@@ -34,7 +33,8 @@ const FeedPage = () => {
   <div>
     <PostForm />
     {feedCards.length > 0 ? feedCards : <Loading /> }
-  </div>)
+  </div>
+  )
   
   
 };

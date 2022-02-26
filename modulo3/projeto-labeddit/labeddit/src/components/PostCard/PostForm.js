@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { InputConteiner } from "./styled";
-import { Button, TextField, CircularProgress } from "@material-ui/core";
+import { FormConteiner, InputConteiner, TextContent } from "./styled";
+import { Button, TextField, CircularProgress, Input, Box } from "@material-ui/core";
 import useForm from "../../hooks/UseForm";
 import { createPost } from "../../services/posts";
+import { StylesContext } from "@material-ui/styles";
 
 const PostForm = () => {
   const [form, onChange, clear] = useForm({ title: "", body: "" });
@@ -14,20 +15,32 @@ const PostForm = () => {
   };
 
   return (
+    <Box
+      component="form"
+      sx={{
+        '& .MuiTextField-root': { m: 1,},
+      }}
+      noValidate
+      autoComplete="off"
+    >
     <InputConteiner>
       <form onSubmit={onSubmitForm}>
-        <TextField
+        {/* <TextField
           type={"text"}
           name={"title"}
           value={form.title}
           onChange={onChange}
-          label="Title"
+          label="Titulo"
           variant={"outlined"}
-          fullWidth
           margin={"normal"}
           required
-        />
+        /> */}
+        <FormConteiner>
+        <TextContent>
         <TextField
+          id="outlined-multiline-static"
+          multiline
+          rows={4}
           type={"text"}
           name={"body"}
           value={form.body}
@@ -38,6 +51,7 @@ const PostForm = () => {
           margin="normal"
           required
         />
+        </TextContent>
         <Button
           type="submit"
           fullWidth
@@ -51,8 +65,10 @@ const PostForm = () => {
             <>Postar</>
           )}
         </Button>
+        </FormConteiner>
       </form>
     </InputConteiner>
+    </Box>
   );
 };
 

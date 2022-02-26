@@ -7,5 +7,5 @@ export const ConteinerComent = styled.div`
     grid-template-columns: 1fr;
     justify-content: center;
     align-content: center;
-
+    word-wrap: break-word;
 `

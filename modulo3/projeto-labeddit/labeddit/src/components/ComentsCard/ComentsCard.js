@@ -10,22 +10,19 @@ import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ShareIcon from "@material-ui/icons/Share";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import { useNavigate } from "react-router-dom";
 import useProtectedPage from "../../hooks/useProtectedPage";
+import { Box } from "@material-ui/core";
 
 const ComentsCard = (props) => {
   useProtectedPage();
-  const navigate = useNavigate();
   console.log(props);
   return (
     <Conteiner>
-      <Card onClick={props.onClick} sx={{ maxWidth: 345 }}>
+      <Card>
+        <Box sx={{ bgcolor: '#f4f1e8' }}>
         <CardHeader
           avatar={
-            <Avatar aria-label="recipe">
-              <Typography name="name" variant="body" color="secondary">
-                {props.name[0]}
-              </Typography>
+            <Avatar src={`https://picsum.photos/200/300`} aria-label="recipe">
             </Avatar>
           }
           action={
@@ -33,14 +30,17 @@ const ComentsCard = (props) => {
               <MoreVertIcon />
             </IconButton>
           }
-          title={props.title}
+          title={'Enviado por', <strong>{props.name}</strong>}
           subheader={props.subheader}
         />
-        <CardContent>
+        </Box>
+        <Box sx={{ bgcolor: 'lightgray' }}>
+          <CardContent>
           <Typography body="body" variant="body2" color="secondary">
             {props.body}
           </Typography>
         </CardContent>
+        
         <CardActions disableSpacing>
           <IconButton color="primary" aria-label="add to favorites">
             <FavoriteIcon />
@@ -48,7 +48,9 @@ const ComentsCard = (props) => {
           <IconButton color="primary" aria-label="share">
             <ShareIcon />
           </IconButton>
+          
         </CardActions>
+        </Box>
       </Card>
     </Conteiner>
   );

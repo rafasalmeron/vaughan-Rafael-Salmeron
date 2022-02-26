@@ -4,6 +4,7 @@ import React from "react";
 import ComentsCard from "../ComentsCard/ComentsCard";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import { ConteinerComent } from "./styled";
+import Loading from "../Loading/Loading";
 
 
 const PostComents = ({coments}) => {
@@ -15,6 +16,7 @@ const PostComents = ({coments}) => {
       <ConteinerComent  key={coment.id}>
         <ComentsCard         
           name={coment.username}
+          title={`Enviado por ${coment.username}`}
           body={coment.body}
           subheader={coment.createdAt}
           id={coment.id}
@@ -28,7 +30,10 @@ const PostComents = ({coments}) => {
       </ConteinerComent>
     );
   });
-  return allComents;
+  return <div>
+  {allComents.length > 0 ? allComents : allComents.lenght = 0 ? <Loading /> : <p>sem comentários</p> }
+</div>;
+  
 };
 
 export default PostComents;

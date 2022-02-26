@@ -24,7 +24,7 @@ const SiginUpForm = ({setLogin_logout}) => {
           value={form.name}
           onChange={onChange}
           label="Nome"
-          variant={"outlined"}
+          variant={"filled"}
           fullWidth
           margin={"normal"}
           required
@@ -36,7 +36,7 @@ const SiginUpForm = ({setLogin_logout}) => {
           value={form.email}
           onChange={onChange}
           label="E-mail"
-          variant={"outlined"}
+          variant={"filled"}
           fullWidth
           margin={"normal"}
           required
@@ -47,7 +47,7 @@ const SiginUpForm = ({setLogin_logout}) => {
           value={form.password}
           onChange={onChange}
           label="Senha"
-          variant="outlined"
+          variant="filled"
           fullWidth
           margin="normal"
           required
