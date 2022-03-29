@@ -1,0 +1,17 @@
+{
+  "name": "aula-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "exercicio1": "node ./exercicio1.js",
+    "exercicio2": "node ./exercicio2.js",
+    "exercicio3": "node ./exercicio3.js",
+    "exercicio4": "node ./exercicio4.js",
+    "desafio": "node ./desafio.js"
+  },
+  "keywords": [],
+  "author": "Rafael Salmeron",
+  "license": "ISC"
+}
