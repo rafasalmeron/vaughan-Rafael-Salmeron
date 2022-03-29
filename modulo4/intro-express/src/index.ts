@@ -93,20 +93,15 @@ app.get('/posts/:userId', (req, res) => {
     const userId = req.params.userId; 
     //NÃO DEU TEMPO DE PENSAR EM UMA MELHOR SOLUÇÃO ATÉ O MOMENTO
     //PRECISO IR TRABALHAR
-    const postUser = users.map((u)=>{
-        if(u.id === userId){
-            return {
-                userId: u.id,
-                id: u.posts.id,
-                title: u.posts.title,
-                body: u.posts.body
-            }
+    const postUser = users.filter((u)=>{
+            return u.id === userId
+    }).map((p) => {
+        return {
+            userId: p.id,
+            id: p.posts.id,
+            title: p.posts.title,
+            body: p.posts.body
         }
-        else {
-            return null
-                
-        }
-        
     })
     res.status(200).send(postUser)
 })
