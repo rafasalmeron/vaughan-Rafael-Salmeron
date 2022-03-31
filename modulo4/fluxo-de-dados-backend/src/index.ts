@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { products } from './data';
+import { Products, products } from './data';
 
 
 const app = express();
@@ -40,14 +40,14 @@ app.put('/:id', (req, res) => {
 })
 
 app.delete('/:id', (req, res) => {
-    const id: any = req.params.id
+    const id = req.params.id
 
-    const newProducts = products.map((p) => {
-        if(!p.id[id]){
-            return 'error'
-        } else {}
+    const filteredProducts = products.filter((p) => {
+        if(id != p.id){
+            return p
+        }
     })
-    res.status(200).send(newProducts)
+    res.status(200).send(filteredProducts)
 })
 
 
