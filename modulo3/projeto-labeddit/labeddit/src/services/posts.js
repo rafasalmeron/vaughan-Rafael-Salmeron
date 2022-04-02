@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { useEffect } from 'react'
 import {BASE_URL} from '../constants/urls'
 
 export const createPost = (body, clear, setIsLoading) => {
@@ -18,7 +19,6 @@ export const createPost = (body, clear, setIsLoading) => {
     alert(err.response.message)
   })
 }
-
 export const createComment = (body, id, clear, setIsLoading) => {
     setIsLoading(true)
     axios.post(`${BASE_URL}/posts/${id}/comments`, body, {

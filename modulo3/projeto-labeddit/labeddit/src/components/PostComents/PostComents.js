@@ -10,16 +10,13 @@ import Loading from "../Loading/Loading";
 const PostComents = ({coments}) => {
   useProtectedPage();
 
-  console.log('COMENTARIO:', coments);
+  
   const allComents = coments.map((coment) => {
+    console.log('COMENTARIO:', coment);
     return (
       <ConteinerComent  key={coment.id}>
         <ComentsCard         
-          name={coment.username}
-          title={`Enviado por ${coment.username}`}
-          body={coment.body}
-          subheader={coment.createdAt}
-          id={coment.id}
+          coment={coment}
         >
           <CardContent>
             <Typography body="body" variant="body2" color="secondary">

@@ -4,14 +4,19 @@ import { Button, TextField, CircularProgress, Input, Box } from "@material-ui/co
 import useForm from "../../hooks/UseForm";
 import { createPost } from "../../services/posts";
 import { StylesContext } from "@material-ui/styles";
+import useRequestData from "../../hooks/useRequestData";
+import { BASE_URL } from "../../constants/urls";
+import PostCard from "./PostCard";
 
 const PostForm = () => {
+  const posts = useRequestData([], `${BASE_URL}/posts`);
   const [form, onChange, clear] = useForm({ title: "", body: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const onSubmitForm = (event) => {
     event.preventDefault();
     createPost(form, clear, setIsLoading);
+    
   };
 
   return (
@@ -25,7 +30,7 @@ const PostForm = () => {
     >
     <InputConteiner>
       <form onSubmit={onSubmitForm}>
-        {/* <TextField
+        <TextField
           type={"text"}
           name={"title"}
           value={form.title}
@@ -34,7 +39,7 @@ const PostForm = () => {
           variant={"outlined"}
           margin={"normal"}
           required
-        /> */}
+        />
         <FormConteiner>
         <TextContent>
         <TextField

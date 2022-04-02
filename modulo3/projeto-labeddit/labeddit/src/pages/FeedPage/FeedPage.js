@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import PostCard from "../../components/PostCard/PostCard";
 import { ConteinerCards } from "./styled";
@@ -13,16 +13,12 @@ const FeedPage = () => {
   console.log(feeds);
 
   const feedCards = feeds.map((feed) => {
-    console.log(feed.username[0]);
+    console.log(feed);
 
     return (
       <ConteinerCards key={feed.id}>
         <PostCard
-          id={feed.id}
-          title={feed.title}
-          name={feed.username}
-          body={feed.body}
-          subheader={feed.createdAt}
+          post={feed}
         />
       </ConteinerCards>
       

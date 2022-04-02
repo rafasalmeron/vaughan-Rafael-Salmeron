@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { FormComent, InputConteiner } from "./styled";
+import { ConteinerForm, FormComent, InputConteiner } from "./styled";
 import { Button, TextField, CircularProgress } from "@material-ui/core";
 import useForm from "../../hooks/UseForm";
 import {createPost} from '../../services/posts'
@@ -22,8 +22,8 @@ const ComentForm = (props) => {
 
   return (
     <CardContent>
-            <PostComents coments={coments} />
-            <form onSubmit={onSubmitForm}>
+            <ConteinerForm>
+              <form onSubmit={onSubmitForm}>
             <Comentar>
               <TextField
                 type={"text"}
@@ -50,6 +50,8 @@ const ComentForm = (props) => {
               </Button>
               </Comentar>
             </form>
+            </ConteinerForm>
+            <PostComents coments={coments} />
           </CardContent>
   );
 };
