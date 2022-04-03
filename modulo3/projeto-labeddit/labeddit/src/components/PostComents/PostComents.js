@@ -6,18 +6,13 @@ import useProtectedPage from "../../hooks/useProtectedPage";
 import { ConteinerComent } from "./styled";
 import Loading from "../Loading/Loading";
 
-
-const PostComents = ({coments}) => {
+const PostComents = ({ coments }) => {
   useProtectedPage();
 
-  
   const allComents = coments.map((coment) => {
-    console.log('COMENTARIO:', coment);
     return (
-      <ConteinerComent  key={coment.id}>
-        <ComentsCard         
-          coment={coment}
-        >
+      <ConteinerComent key={coment.id}>
+        <ComentsCard coment={coment}>
           <CardContent>
             <Typography body="body" variant="body2" color="secondary">
               {coment.body}
@@ -27,10 +22,13 @@ const PostComents = ({coments}) => {
       </ConteinerComent>
     );
   });
-  return <div>
-  {allComents.length > 0 ? allComents : allComents.lenght = 0 ? <Loading /> : <p>sem comentários</p> }
-</div>;
-  
+  return (
+    <div>
+      {allComents.length > 0
+        ? allComents
+        : (allComents.lenght = 0 ? <Loading /> : <p>sem comentários</p>)}
+    </div>
+  );
 };
 
 export default PostComents;

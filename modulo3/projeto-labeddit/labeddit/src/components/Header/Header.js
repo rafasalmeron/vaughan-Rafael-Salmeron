@@ -5,23 +5,23 @@ import { goToFeed, goToLogin } from "../../routes/cordinator";
 import { StyledToolBar } from "./styled";
 import { useNavigate } from "react-router-dom";
 
-const Header = ({login_logout, setLogin_logout}) => {
+const Header = ({ login_logout, setLogin_logout }) => {
   const token = localStorage.getItem("tokenLabeddit");
   const navigate = useNavigate();
-  
+
   const logout = () => {
-    localStorage.removeItem('tokenLabeddit')
-  }
+    localStorage.removeItem("tokenLabeddit");
+  };
 
   const login_logoutAction = () => {
-    if (token){
-      logout()
-      setLogin_logout('Login')
-      goToLogin(navigate)
+    if (token) {
+      logout();
+      setLogin_logout("Login");
+      goToLogin(navigate);
     } else {
-      goToLogin(navigate)
+      goToLogin(navigate);
     }
-  }
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>

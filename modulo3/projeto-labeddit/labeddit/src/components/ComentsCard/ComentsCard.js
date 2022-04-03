@@ -7,51 +7,45 @@ import CardActions from "@material-ui/core/CardActions";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import ArrowDownIcon from '@material-ui/icons/ArrowDownwardOutlined';
+import ArrowDownIcon from "@material-ui/icons/ArrowDownwardOutlined";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpwardOutlined";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import { Box } from "@material-ui/core";
 
 const ComentsCard = (props) => {
   useProtectedPage();
-  console.log(props);
   return (
     <Conteiner>
       <Card>
-        <Box sx={{ bgcolor: '#f4f1e8' }}>
+        <Box sx={{ bgcolor: "#f4f1e8" }}>
           <BoxUser>
-        <CardHeader
-          avatar={
-            <Avatar src={`https://picsum.photos/200/300`} aria-label="recipe">
-            </Avatar>
-          }
-          action={
-            <IconButton color="primary" aria-label="settings">
-              <ArrowUpwardIcon /><ArrowDownIcon />
-            </IconButton>
-            
-          }
-          title={<strong>{props.coment.username}</strong>}
-          subheader={<>{props.coment.createdAt}</>}
-        />
-        </BoxUser>
+            <CardHeader
+              avatar={
+                <Avatar
+                  src={`https://picsum.photos/200/300`}
+                  aria-label="recipe"
+                ></Avatar>
+              }
+              title={<strong>{props.coment.username}</strong>}
+              subheader={<>{props.coment.createdAt}</>}
+            />
+          </BoxUser>
         </Box>
-        <Box sx={{ bgcolor: 'lightgray' }}>
+        <Box sx={{ bgcolor: "white" }}>
           <CardContent>
-          <Typography body="body" variant="body2" color="secondary">
-            {props.coment.body}
-          </Typography>
-        </CardContent>
-        <CardActions disableSpacing>
-                 <IconButton  color="primary" aria-label="add to favorites">
-                   <ArrowDownIcon />
-                 </IconButton>
-                 <p>{props.coment.voteSum}</p>
-                 <IconButton color="primary" aria-label="share">
-                  <ArrowUpwardIcon />
-              </IconButton>
-               </CardActions>
+            <Typography body="body" variant="body2" color="secondary">
+              {props.coment.body}
+            </Typography>
+          </CardContent>
+          <CardActions disableSpacing>
+            <IconButton color="primary" aria-label="add to favorites">
+              <ArrowDownIcon />
+            </IconButton>
+            <p>{props.coment.voteSum}</p>
+            <IconButton color="primary" aria-label="share">
+              <ArrowUpwardIcon />
+            </IconButton>
+          </CardActions>
         </Box>
       </Card>
     </Conteiner>
