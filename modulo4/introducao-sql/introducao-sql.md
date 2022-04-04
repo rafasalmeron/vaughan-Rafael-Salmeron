@@ -106,7 +106,7 @@ VALUES(
 #### c)
 ```SELECT id, titulo, sinopse FROM Movie WHERE avaliacao > 7;```
 
-#7)
+# 7)
 #### a)
 ```SELECT * FROM Movie WHERE titulo LIKE "%vida%";```
 
