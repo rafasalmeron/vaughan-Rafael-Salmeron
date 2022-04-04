@@ -14,6 +14,12 @@ import { Box } from "@material-ui/core";
 
 const ComentsCard = (props) => {
   useProtectedPage();
+  const handleUpVote = () => {
+      props.handleCommentVote(props.coment.id, 1)
+  }
+  const handleDownVote = () => {
+      props.handleCommentVote(props.coment.id, -1)
+  }
   return (
     <Conteiner>
       <Card>
@@ -27,7 +33,7 @@ const ComentsCard = (props) => {
                 ></Avatar>
               }
               title={<strong>{props.coment.username}</strong>}
-              subheader={<>{props.coment.createdAt}</>}
+              subheader={<>{}</>}
             />
           </BoxUser>
         </Box>
@@ -38,13 +44,14 @@ const ComentsCard = (props) => {
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
-            <IconButton color="primary" aria-label="add to favorites">
-              <ArrowDownIcon />
+            <IconButton  onClick={handleUpVote}>
+              <ArrowUpwardIcon color={props.coment.userVote === 1 ? "primary" : "disabled"}/>
             </IconButton>
             <p>{props.coment.voteSum}</p>
-            <IconButton color="primary" aria-label="share">
-              <ArrowUpwardIcon />
+            <IconButton  onClick={handleDownVote}>
+              <ArrowDownIcon color={props.coment.userVote === -1 ? "secondary" : "disabled"}/>
             </IconButton>
+            
           </CardActions>
         </Box>
       </Card>

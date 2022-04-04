@@ -23,15 +23,21 @@ const PostCard = (props) => {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+  const handleUpVote = () => {
+    props.handleVotePost(props.post.id, 1)
+  }
+  const handleDownVote = () => {
+    props.handleVotePost(props.post.id, -1)
+  }
   return (
     <Conteiner>
       <Votes>
-        <IconButton color="primary" aria-label="add to favorites">
-          <ArrowUpwardIcon />
+        <IconButton onClick={handleUpVote} >
+          <ArrowUpwardIcon color={props.post.userVote === 1 ? "primary" : "disabled"}/>
         </IconButton>
         <p>{props.post.voteSum}</p>
-        <IconButton color="primary" aria-label="share">
-          <ArrowDownIcon />
+        <IconButton onClick={handleDownVote} >
+          <ArrowDownIcon color={props.post.userVote === -1 ? "secondary" : "disabled"}/>
         </IconButton>
       </Votes>
 

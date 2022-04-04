@@ -9,13 +9,11 @@ import {
 } from "@material-ui/core";
 import useForm from "../../hooks/UseForm";
 import { createPost } from "../../services/posts";
-import { StylesContext } from "@material-ui/styles";
 import useRequestData from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/urls";
-import PostCard from "./PostCard";
+
 
 const PostForm = () => {
-  const posts = useRequestData([], `${BASE_URL}/posts`);
   const [form, onChange, clear] = useForm({ title: "", body: "" });
   const [isLoading, setIsLoading] = useState(false);
 

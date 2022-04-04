@@ -5,6 +5,7 @@ import ComentsCard from "../ComentsCard/ComentsCard";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import { ConteinerComent } from "./styled";
 import Loading from "../Loading/Loading";
+import { createComentVote } from "../../services/posts";
 
 const PostComents = ({ coments }) => {
   useProtectedPage();
@@ -12,7 +13,7 @@ const PostComents = ({ coments }) => {
   const allComents = coments.map((coment) => {
     return (
       <ConteinerComent key={coment.id}>
-        <ComentsCard coment={coment}>
+        <ComentsCard coment={coment} handleCommentVote={createComentVote} >
           <CardContent>
             <Typography body="body" variant="body2" color="secondary">
               {coment.body}

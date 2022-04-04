@@ -10,6 +10,9 @@ const theme = createTheme({
     secondary: {
       main: secondarycolor,
     },
+    especial: {
+      main: especialcolor
+    }
   },
 });
 

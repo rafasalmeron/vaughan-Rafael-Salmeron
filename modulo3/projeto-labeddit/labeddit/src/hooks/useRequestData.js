@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const useRequestData = (initialData, url) => {
+const useRequestData = (initialData, url, offset) => {
+  
   const [data, setData] = useState(initialData);
   const handleData = () => {
     axios
@@ -18,6 +19,7 @@ const useRequestData = (initialData, url) => {
         console.log(err);
         alert("Ocorreu um erro, try again!");
       });
+      
   };
   useEffect(() => {
     handleData();
