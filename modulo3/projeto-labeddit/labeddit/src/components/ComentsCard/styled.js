@@ -6,3 +6,7 @@ export const Conteiner = styled.div`
     margin-bottom: 10px;
 `
 
+export const BoxUser = styled.div`
+    max-height: 60px;
+    
+`

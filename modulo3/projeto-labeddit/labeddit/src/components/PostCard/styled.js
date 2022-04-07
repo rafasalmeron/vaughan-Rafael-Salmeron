@@ -16,9 +16,6 @@ export const InputConteiner = styled.div`
   align-items: center;
   margin-bottom: 20px;
   `;
-export const a = styled.div`
-
-`
 
 export const Comentar = styled.div`
   display: flex;
@@ -35,4 +32,13 @@ export const FormConteiner = styled.div`
 `
 export const TextContent = styled.div`
     word-wrap: break-word;
+`
+export const Votes = styled.div`
+  display: flex;
+  flex-direction: column;
+  float: left;
+  max-width: 20px;
+  background-color: lightgray;
+  align-items: center;
+  border-radius: 5px 0px 0px 5px;
 `

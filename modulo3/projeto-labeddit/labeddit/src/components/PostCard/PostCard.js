@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Conteiner } from "./styled";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
+import { Conteiner, Votes } from "./styled";
+import ArrowDownIcon from "@material-ui/icons/ArrowDownwardOutlined";
+import ArrowUpwardIcon from "@material-ui/icons/ArrowUpwardOutlined";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import {
   Card,
@@ -24,35 +23,39 @@ const PostCard = (props) => {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  console.log(props);
+  const handleUpVote = () => {
+    props.handleVotePost(props.post.id, 1)
+  }
+  const handleDownVote = () => {
+    props.handleVotePost(props.post.id, -1)
+  }
   return (
     <Conteiner>
+      <Votes>
+        <IconButton onClick={handleUpVote} >
+          <ArrowUpwardIcon color={props.post.userVote === 1 ? "primary" : "disabled"}/>
+        </IconButton>
+        <p>{props.post.voteSum}</p>
+        <IconButton onClick={handleDownVote} >
+          <ArrowDownIcon color={props.post.userVote === -1 ? "secondary" : "disabled"}/>
+        </IconButton>
+      </Votes>
+
       <Card>
         <Box sx={{ bgcolor: "#f4f1e8" }}>
           <CardHeader
             avatar={<Avatar src={`https://picsum.photos/200/300`}></Avatar>}
-            action={
-              <IconButton color="primary" aria-label="settings">
-                <MoreVertIcon />
-              </IconButton>
-            }
-            title={("Enviado por", (<strong>{props.name}</strong>))}
-            subheader={<>{props.subheader}</>}
+            title={("Enviado por", (<strong>{props.post.title}</strong>))}
+            subheader={<>{`${props.post.username}`}</>}
           />
         </Box>
         <Box sx={{ bgcolor: "lightgray" }}>
           <CardContent>
             <Typography body="body" variant="body2" color="secondary">
-              {props.body}
+              {props.post.body}
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
-            <IconButton color="primary" aria-label="add to favorites">
-              <FavoriteIcon />
-            </IconButton>
-            <IconButton color="primary" aria-label="share">
-              <ShareIcon />
-            </IconButton>
             <PostExpandMore
               expand={expanded}
               onClick={handleExpandClick}
@@ -65,7 +68,7 @@ const PostCard = (props) => {
             </PostExpandMore>
           </CardActions>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
-            <ComentForm id={props.id} />
+            <ComentForm id={props.post.id} />
           </Collapse>
         </Box>
       </Card>

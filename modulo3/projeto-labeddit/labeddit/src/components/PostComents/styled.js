@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-
+export const ConteinerForm = styled.div`
+    justify-content: center;
+    max-width: 90%;
+    margin-bottom: 20px;
+`
 
 export const ConteinerComent = styled.div`
     display: grid;

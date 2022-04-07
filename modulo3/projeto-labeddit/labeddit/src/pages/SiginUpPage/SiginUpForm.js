@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { InputConteiner } from "./styled";
+import { InputConteiner, SiginUpButton } from "./styled";
 import { Button, TextField, CircularProgress } from "@material-ui/core";
 import useForm from "../../hooks/UseForm";
 import { signUp } from "../../services/users";
